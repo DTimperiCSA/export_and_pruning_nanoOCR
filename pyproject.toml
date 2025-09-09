@@ -1,0 +1,15 @@
+[project]
+name = "export_and_pruning_nanoOCR"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "DTimperi - CSA", email = "d.timperi@csadocuments.it"},
+]
+dependencies = ["transformers>=4.56.1", "onnxruntime-gpu>=1.22.0", "accelerate>=1.10.1", "pillow>=11.3.0", "torch>=2.8.0", "flash-attn>=2.8.3", "torchvision>=0.23.0"]
+requires-python = "==3.13.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
