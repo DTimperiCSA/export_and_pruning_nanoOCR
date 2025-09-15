@@ -1,9 +1,11 @@
 from pathlib import Path
 
 DESKTOP_DIR = Path.home() / "Desktop"
-REPO_DIR = DESKTOP_DIR / "export_and_pruning_nanoOCR"
+REPO_DIR = DESKTOP_DIR /  "github" / "export_and_pruning_nanoOCR"
 HUGGING_FACE_RES = REPO_DIR /"huggingface_inference"
 PYTORCH_INFERENCE_DIR = REPO_DIR / "pytorch_inference"
+
+OCR_TEST_PATH = r"C:\Demo\fascicoli_del_personale\csaFPApp\test\temp\002346_GIANNINO ANTONIETTA"
 
 ASSETS_DIR = REPO_DIR / "assets"
 

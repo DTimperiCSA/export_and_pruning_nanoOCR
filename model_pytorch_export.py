@@ -8,10 +8,10 @@ from paths import *
 SAVE_DIR.mkdir(parents=True, exist_ok=True)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# ---------------- LOAD MODEL ----------------
+# ---------------- LOAD MODEL (FP32) ----------------
 model_fp32 = AutoModelForImageTextToText.from_pretrained(
     MODEL_ID,
-    dtype=torch.float32,
+    torch_dtype=torch.float32,
     device_map=device,
 )
 model_fp32.eval()
@@ -24,7 +24,7 @@ def ocr_page(image_path, model, processor, max_new_tokens=4096):
     prompt = """Extract the text from the above document as if you were reading it naturally.
 Return the tables in html format. Return equations in LaTeX. Wrap watermarks in <watermark></watermark>.
 Wrap page numbers in <page_number></page_number>. Describe images in <img></img> if no caption."""
-    
+
     image = Image.open(image_path).convert("RGB")
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
@@ -57,51 +57,3 @@ model_fp16.eval()
 fp16_path = SAVE_DIR / "nanoocr_fp16.pth"
 torch.save(model_fp16.state_dict(), fp16_path)
 print(f"✅ Saved FP16 model to: {fp16_path}")
-
-# ---------------- TORCHSCRIPT EXPORT (FP16) ----------------
-print("🔄 Creating TorchScript version (FP16)...")
-
-# Dummy inputs for tracing
-image = Image.open(IMAGE_PATH).convert("RGB")
-dummy_messages = [
-    {"role": "user", "content": [
-        {"type": "image", "image": f"file://{IMAGE_PATH}"},
-        {"type": "text", "text": "Dummy prompt"},
-    ]},
-]
-text_input = processor.apply_chat_template(dummy_messages, tokenize=False, add_generation_prompt=True)
-dummy_inputs = processor(text=[text_input], images=[image], padding=True, return_tensors="pt")
-dummy_inputs = {k: v.to(device).half() for k, v in dummy_inputs.items()}  # FP16
-
-# Define wrapper for tracing only forward pass (simplified)
-class InferenceWrapper(torch.nn.Module):
-    def __init__(self, model):
-        super().__init__()
-        self.model = model
-
-    def forward(self, input_ids, attention_mask, pixel_values):
-        return self.model.generate(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            pixel_values=pixel_values,
-            max_new_tokens=512,
-            do_sample=False
-        )
-
-script_model = InferenceWrapper(model_fp16)
-script_model.eval()
-script_model.to("cuda")
-
-traced = torch.jit.trace(
-    script_model,
-    (
-        dummy_inputs["input_ids"],
-        dummy_inputs["attention_mask"],
-        dummy_inputs["pixel_values"],
-    ),
-    strict=False
-)
-
-scripted_path = SAVE_DIR / "nanoocr_fp16_scripted.pt"
-traced.save(scripted_path)
-print(f"✅ Saved TorchScript model (FP16) to: {scripted_path}")
