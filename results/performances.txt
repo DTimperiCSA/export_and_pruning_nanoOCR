@@ -1,0 +1,350 @@
+=== OCR su page_00000018_desk.png con resize 40%-120% ===
+
+[DEBUG] Processing page_00000018_desk.png at 40% scale
+[DEBUG] CPU before: 22160.12 MB, GPU before: 7275.36 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 40% -> (986, 1377)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[DEBUG] CPU after: 23279.52 MB, GPU after: 7314.31 MB, latency: 13.12s
+[DEBUG] Tokens generated: 2118
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_40.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_40.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_40.txt
+
+[DEBUG] Processing page_00000018_desk.png at 41% scale
+[DEBUG] CPU before: 23274.43 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 41% -> (1011, 1411)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23341.69 MB, GPU after: 7315.83 MB, latency: 13.06s
+[DEBUG] Tokens generated: 2211
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_41.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_41.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_41.txt
+
+[DEBUG] Processing page_00000018_desk.png at 42% scale
+[DEBUG] CPU before: 23336.26 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 42% -> (1036, 1446)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23347.45 MB, GPU after: 7318.06 MB, latency: 12.35s
+[DEBUG] Tokens generated: 2329
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_42.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_42.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_42.txt
+
+[DEBUG] Processing page_00000018_desk.png at 43% scale
+[DEBUG] CPU before: 23341.74 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 43% -> (1060, 1480)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23355.84 MB, GPU after: 7319.68 MB, latency: 12.75s
+[DEBUG] Tokens generated: 2420
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_43.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_43.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_43.txt
+
+[DEBUG] Processing page_00000018_desk.png at 44% scale
+[DEBUG] CPU before: 23349.85 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 44% -> (1085, 1514)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23362.18 MB, GPU after: 7321.33 MB, latency: 12.97s
+[DEBUG] Tokens generated: 2511
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_44.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_44.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_44.txt
+
+[DEBUG] Processing page_00000018_desk.png at 45% scale
+[DEBUG] CPU before: 23355.91 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 45% -> (1110, 1549)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23331.66 MB, GPU after: 7323.02 MB, latency: 14.20s
+[DEBUG] Tokens generated: 2607
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_45.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_45.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_45.txt
+
+[DEBUG] Processing page_00000018_desk.png at 46% scale
+[DEBUG] CPU before: 23325.10 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 46% -> (1134, 1583)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23335.05 MB, GPU after: 7324.46 MB, latency: 14.50s
+[DEBUG] Tokens generated: 2686
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_46.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_46.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_46.txt
+
+[DEBUG] Processing page_00000018_desk.png at 47% scale
+[DEBUG] CPU before: 23328.21 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 47% -> (1159, 1618)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23345.23 MB, GPU after: 7326.22 MB, latency: 14.87s
+[DEBUG] Tokens generated: 2783
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_47.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_47.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_47.txt
+
+[DEBUG] Processing page_00000018_desk.png at 48% scale
+[DEBUG] CPU before: 23338.07 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 48% -> (1184, 1652)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23340.92 MB, GPU after: 7328.02 MB, latency: 16.25s
+[DEBUG] Tokens generated: 2882
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_48.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_48.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_48.txt
+
+[DEBUG] Processing page_00000018_desk.png at 49% scale
+[DEBUG] CPU before: 23333.46 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 49% -> (1208, 1687)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23359.08 MB, GPU after: 7329.85 MB, latency: 14.68s
+[DEBUG] Tokens generated: 2981
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_49.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_49.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_49.txt
+
+[DEBUG] Processing page_00000018_desk.png at 50% scale
+[DEBUG] CPU before: 23351.31 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 50% -> (1233, 1721)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23347.18 MB, GPU after: 7331.72 MB, latency: 13.84s
+[DEBUG] Tokens generated: 3087
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_50.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_50.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_50.txt
+
+[DEBUG] Processing page_00000018_desk.png at 51% scale
+[DEBUG] CPU before: 23339.08 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 51% -> (1258, 1755)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 18994.37 MB, GPU after: 7334.43 MB, latency: 21.57s
+[DEBUG] Tokens generated: 3238
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_51.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_51.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_51.txt
+
+[DEBUG] Processing page_00000018_desk.png at 52% scale
+[DEBUG] CPU before: 18985.94 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 52% -> (1282, 1790)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 20097.51 MB, GPU after: 7336.39 MB, latency: 26.50s
+[DEBUG] Tokens generated: 3354
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_52.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_52.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_52.txt
+
+[DEBUG] Processing page_00000018_desk.png at 53% scale
+[DEBUG] CPU before: 20088.75 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 53% -> (1307, 1824)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 21275.73 MB, GPU after: 7338.38 MB, latency: 26.13s
+[DEBUG] Tokens generated: 3456
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_53.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_53.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_53.txt
+
+[DEBUG] Processing page_00000018_desk.png at 54% scale
+[DEBUG] CPU before: 21266.63 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 54% -> (1332, 1859)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 22450.35 MB, GPU after: 7340.41 MB, latency: 30.27s
+[DEBUG] Tokens generated: 3574
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_54.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_54.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_54.txt
+
+[DEBUG] Processing page_00000018_desk.png at 55% scale
+[DEBUG] CPU before: 22440.90 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 55% -> (1356, 1893)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23470.33 MB, GPU after: 7342.14 MB, latency: 30.54s
+[DEBUG] Tokens generated: 3671
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_55.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_55.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_55.txt
+
+[DEBUG] Processing page_00000018_desk.png at 56% scale
+[DEBUG] CPU before: 23460.54 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 56% -> (1381, 1928)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 12033.72 MB, GPU after: 7344.24 MB, latency: 32.33s
+[DEBUG] Tokens generated: 3786
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_56.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_56.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_56.txt
+
+[DEBUG] Processing page_00000018_desk.png at 57% scale
+[DEBUG] CPU before: 12023.56 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 57% -> (1406, 1962)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 13741.80 MB, GPU after: 7346.38 MB, latency: 31.98s
+[DEBUG] Tokens generated: 3914
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_57.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_57.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_57.txt
+
+[DEBUG] Processing page_00000018_desk.png at 58% scale
+[DEBUG] CPU before: 13731.27 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 58% -> (1430, 1996)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 15410.82 MB, GPU after: 7348.55 MB, latency: 30.67s
+[DEBUG] Tokens generated: 4027
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_58.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_58.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_58.txt
+
+[DEBUG] Processing page_00000018_desk.png at 59% scale
+[DEBUG] CPU before: 15399.93 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 59% -> (1455, 2031)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 17250.27 MB, GPU after: 7351.70 MB, latency: 35.59s
+[DEBUG] Tokens generated: 4198
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_59.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_59.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_59.txt
+
+[DEBUG] Processing page_00000018_desk.png at 60% scale
+[DEBUG] CPU before: 17238.99 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 60% -> (1480, 2065)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 19213.12 MB, GPU after: 7353.96 MB, latency: 36.58s
+[DEBUG] Tokens generated: 4325
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_60.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_60.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_60.txt
+
+[DEBUG] Processing page_00000018_desk.png at 61% scale
+[DEBUG] CPU before: 19201.46 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 61% -> (1504, 2100)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 21005.97 MB, GPU after: 7356.26 MB, latency: 39.57s
+[DEBUG] Tokens generated: 4454
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_61.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_61.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_61.txt
+
+[DEBUG] Processing page_00000018_desk.png at 62% scale
+[DEBUG] CPU before: 20993.93 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 62% -> (1529, 2134)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 4862.43 MB, GPU after: 7358.60 MB, latency: 20.51s
+[DEBUG] Tokens generated: 4589
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_62.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_62.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_62.txt
+
+[DEBUG] Processing page_00000018_desk.png at 63% scale
+[DEBUG] CPU before: 4849.98 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 63% -> (1554, 2169)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 4866.46 MB, GPU after: 7360.97 MB, latency: 18.12s
+[DEBUG] Tokens generated: 4714
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_63.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_63.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_63.txt
+
+[DEBUG] Processing page_00000018_desk.png at 64% scale
+[DEBUG] CPU before: 4853.60 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 64% -> (1578, 2203)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 4873.45 MB, GPU after: 7362.98 MB, latency: 18.63s
+[DEBUG] Tokens generated: 4828
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_64.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_64.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_64.txt
+
+[DEBUG] Processing page_00000018_desk.png at 65% scale
+[DEBUG] CPU before: 4860.20 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 65% -> (1603, 2237)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 7392.88 MB, GPU after: 7365.60 MB, latency: 43.96s
+[DEBUG] Tokens generated: 4964
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_65.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_65.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_65.txt
+
+[DEBUG] Processing page_00000018_desk.png at 66% scale
+[DEBUG] CPU before: 7379.21 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 66% -> (1628, 2272)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 10188.45 MB, GPU after: 7367.90 MB, latency: 40.11s
+[DEBUG] Tokens generated: 5105
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_66.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_66.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_66.txt
+
+[DEBUG] Processing page_00000018_desk.png at 67% scale
+[DEBUG] CPU before: 10174.35 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 67% -> (1652, 2306)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 9070.02 MB, GPU after: 7370.42 MB, latency: 271.69s
+[DEBUG] Tokens generated: 5245
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_67.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_67.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_67.txt
+
+[DEBUG] Processing page_00000018_desk.png at 68% scale
+[DEBUG] CPU before: 9055.48 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 68% -> (1677, 2341)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 12199.61 MB, GPU after: 7374.05 MB, latency: 316.58s
+[DEBUG] Tokens generated: 5444
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_68.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_68.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_68.txt

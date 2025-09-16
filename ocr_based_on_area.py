@@ -10,7 +10,25 @@ from paths import *  # your folder with images
 from postprocess import *
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+THRESHOLD = 2121000  # max pixels allowed as area
 
+"""
+Ottenuto dalle performance sull OCR su questo PC con:
+
+[DEBUG] Processing page_00000018_desk.png at 50% scale
+[DEBUG] CPU before: 23351.31 MB, GPU before: 7283.49 MB
+[DEBUG] Original image size: (2467, 3443)
+[DEBUG] Resized image to 50% -> (1233, 1721)
+[DEBUG] Applying processor chat template
+[DEBUG] Generating OCR output...
+[DEBUG] CPU after: 23347.18 MB, GPU after: 7331.72 MB, latency: 13.84s
+[DEBUG] Tokens generated: 3087
+💾 Saving OCR result to results\page_00000018_desk_fp16_resized_50.txt
+Processed file saved to results\page_00000018_desk_fp16_resized_50.txt
+[DEBUG] Saved OCR text to results\page_00000018_desk_fp16_resized_50.txt
+
+
+"""
 
 def get_memory_usage():
     cpu_mem = psutil.Process(os.getpid()).memory_info().rss / (1024 ** 2)
@@ -44,17 +62,32 @@ def clean_ocr_output_dynamic(output_text):
     return "\n".join(lines[start_idx:]).strip()
 
 
-def ocr_inference(model, processor, image_path, language="Italian", resize=True, max_new_tokens=4096):
-    import time
+def ocr_inference(model, processor, image_path, language="Italian", max_new_tokens=4096):
     cpu_before, gpu_before = get_memory_usage()
     start = time.time()
 
+    # --- Load image ---
     image = Image.open(image_path).convert("RGB")
-    if resize:
-        w, h = image.size
-        image = image.resize((w//2, h//2))
+    w, h = image.size
+    area = w * h
+    print(f"📐 Original image: {w}x{h} ({area} pixels)")
 
-    prompt = f"Extract only the plain text from the image, without any formatting, tags, captions, page numbers, or watermarks. Do not translate anything. Do not include HTML, LaTeX, descriptions, or metadata. The document is in {language}. Return only the OCR text, nothing else.  "
+    # --- Scale image if needed ---
+    if area > THRESHOLD:
+        scale = (THRESHOLD / area) ** 0.5
+        new_w, new_h = int(w * scale), int(h * scale)
+        image = image.resize((new_w, new_h))
+        print(f"🔧 Image scaled by {scale:.3f} -> {new_w}x{new_h} ({new_w*new_h} pixels)")
+    else:
+        print("✅ Image within threshold, no scaling applied")
+
+    # --- Prepare OCR prompt ---
+    prompt = (
+        f"Extract only the plain text from the image, without any formatting, tags, "
+        f"captions, page numbers, or watermarks. Do not translate anything. "
+        f"Do not include HTML, LaTeX, descriptions, or metadata. "
+        f"The document is in {language}. Return only the OCR text, nothing else."
+    )
 
     messages = [
         {"role": "system", "content": "You are a helpful OCR engine."},
@@ -64,10 +97,11 @@ def ocr_inference(model, processor, image_path, language="Italian", resize=True,
         ]}
     ]
 
+    # --- Perform inference ---
+    print("⏳ Running OCR inference...")
     text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = processor(text=[text], images=[image], padding=True, return_tensors="pt")
     inputs = inputs.to(model.device)
-    # inputs = {k: v.to(DEVICE) for k, v in inputs.items()}
             
     with torch.no_grad():
         output_ids = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
@@ -75,11 +109,17 @@ def ocr_inference(model, processor, image_path, language="Italian", resize=True,
             output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True
         )[0].strip()
 
-    latency = time.time() - start
     cpu_after, gpu_after = get_memory_usage()
+    elapsed = time.time() - start
+    output_tokens = output_ids.shape[-1]
     mem_usage = (cpu_before, cpu_after, gpu_before, gpu_after)
 
-    return ocr_text, latency, output_ids.shape[-1], mem_usage
+    print(f"✅ OCR done in {elapsed:.2f}s")
+    print(f"💻 CPU memory: {cpu_before:.1f}MB -> {cpu_after:.1f}MB | "
+          f"GPU memory: {gpu_before:.1f}MB -> {gpu_after:.1f}MB")
+    print(f"📝 Output tokens (approx): {output_tokens}")
+
+    return ocr_text, elapsed, output_tokens, mem_usage
 
 
 
@@ -88,7 +128,6 @@ def save_text(output_path, text):
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(text.strip())
     remove_before_headline(output_path, output_path)  # post-process to remove intro lines
-
 
 
 def main():
@@ -119,17 +158,19 @@ def main():
         filename = img_path.stem.replace("_desk", "")
         print(f"\n=== Processing {img_path.name} ===")
 
-        language = "Italian"
+        # Call OCR
+        ocr_text_resized, latency_resized, tokens_resized, mem_resized = ocr_inference(
+            model, processor, img_path, language="Italian"
+        )
 
-        ocr_text_resized, latency_resized, tokens_resized, mem_resized = ocr_inference(model, processor, img_path, language, resize=True)
-        output_resized_path = img_path.parent / f"{filename}_fp16_resized.txt"
-        save_text(output_resized_path, ocr_text_resized)
+        output_folder = img_path.parent / "results"
+        output_folder.mkdir(exist_ok=True, parents=True)  # create folder if it doesn't exist
 
-        ocr_text_noresize, latency_noresize, tokens_noresize, mem_noresize = ocr_inference(model, processor, img_path, language, resize=False)
-        output_noresize_path = img_path.parent / f"{filename}_fp16_noresize.txt"
-        save_text(output_noresize_path, ocr_text_noresize)
+        print(f"💾 Saving OCR output for {img_path.name}")
+        output_resized_path = output_folder / f"{filename}_fp16_resized.txt"
+        save_text(output_resized_path, ocr_text_resized)  # <-- pass the OCR text, not the path
 
-        print(f"✅ Done {img_path.name}: resized {latency_resized:.2f}s, noresize {latency_noresize:.2f}s")
+        print(f"✅ Finished {img_path.name}: {latency_resized:.2f}s, tokens={tokens_resized}")
 
         results.append({
             "image": img_path.name,
@@ -139,12 +180,6 @@ def main():
             "resized_cpu_mem_after": mem_resized[1],
             "resized_gpu_mem_before": mem_resized[2],
             "resized_gpu_mem_after": mem_resized[3],
-            "noresize_latency": latency_noresize,
-            "noresize_tokens": tokens_noresize,
-            "noresize_cpu_mem_before": mem_noresize[0],
-            "noresize_cpu_mem_after": mem_noresize[1],
-            "noresize_gpu_mem_before": mem_noresize[2],
-            "noresize_gpu_mem_after": mem_noresize[3],
         })
 
     csv_path = Path(OCR_TEST_PATH) / "ocr_fp16_performance.csv"
@@ -161,66 +196,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-"""
-def ocr_single_image(self, image_path: Path, language="Italian", max_new_tokens=None):
-        # lazy load here
-        self._ensure_model_loaded()
-
-        if max_new_tokens is None:
-            max_new_tokens = self.MAX_NEW_TOKENS
-
-        prompt = f"Extract only the plain {language} text from the image, without any formatting, tags, captions, page numbers, or watermarks. Do not translate anything."
-
-        image = Image.open(image_path).convert("RGB")
-        if max(image.size) > 1024:
-            image.thumbnail((1024, 1024), Image.LANCZOS)
-
-        try:
-            messages = [
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": [
-                    {"type": "image", "image": f"file://{image_path}"},
-                    {"type": "text", "text": prompt},
-                ]},
-            ]
-
-            text = self.processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-            inputs = self.processor(text=[text], images=[image], padding=True, return_tensors="pt")
-            inputs = inputs.to(self.model.device)
-
-            output_ids = self.model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=False,
-                eos_token_id=getattr(self.tokenizer, "eos_token_id", None)
-            )
-
-            generated_ids = [output_ids[len(input_ids):] for input_ids, output_ids in zip(inputs.input_ids, output_ids)]
-            output_text = self.processor.batch_decode(generated_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)[0].strip()
-            output_text_cleaned = self.remove_repeated_tail(output_text)
-
-            qimage = self.pil_image_to_qimage(image)
-            self.preview_image_signal.emit(qimage, qimage)
-            self.preview_ocr_text_signal.emit(output_text_cleaned)
-
-            txt_path = Path(convert_orig_png_to_txt(str(image_path)))
-            with open(txt_path, "w", encoding="utf-8") as f:
-                f.write(output_text_cleaned)
-
-        except Exception as e:
-            self.log(f"⚠️ OCR failed for {image_path.name}: {e}")
-            self.failed.emit(str(e))
-
-
-
-    def remove_repeated_tail(self, text: str) -> str:
-        lines = text.splitlines()
-        for size in range(3, len(lines) // 2 + 1):
-            tail = lines[-size:]
-            rest = lines[:-size]
-            if rest[-size:] == tail:
-                return "\n".join(lines[:-size]).strip()
-        return text.strip()
-"""

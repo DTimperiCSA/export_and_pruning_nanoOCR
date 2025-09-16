@@ -11,7 +11,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 # ---------------- LOAD MODEL (FP32) ----------------
 model_fp32 = AutoModelForImageTextToText.from_pretrained(
     MODEL_ID,
-    torch_dtype=torch.float32,
+    dtype=torch.float32,
     device_map=device,
 )
 model_fp32.eval()
@@ -48,12 +48,14 @@ print("OCR Result (FP32):\n", result)
 
 # ---------------- SAVE FP32 MODEL ----------------
 fp32_path = SAVE_DIR / "nanoocr_fp32.pth"
-torch.save(model_fp32.state_dict(), fp32_path)
+model_fp32_cpu = model_fp32.to("cpu")
+torch.save(model_fp32_cpu.state_dict(), fp32_path)
 print(f"✅ Saved FP32 model to: {fp32_path}")
 
 # ---------------- CONVERT TO FP16 ----------------
 model_fp16 = model_fp32.half()
 model_fp16.eval()
+model_fp16_cpu = model_fp16.to("cpu")
 fp16_path = SAVE_DIR / "nanoocr_fp16.pth"
 torch.save(model_fp16.state_dict(), fp16_path)
 print(f"✅ Saved FP16 model to: {fp16_path}")
