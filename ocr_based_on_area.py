@@ -104,7 +104,7 @@ def ocr_inference(model, processor, image_path, language="Italian", max_new_toke
     inputs = inputs.to(model.device)
             
     with torch.no_grad():
-        output_ids = model.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
+        output_ids = model.generate(**inputs, max_new_tokens=max_new_tokens, repetition_penalty=1.15, do_sample=False)
         ocr_text = processor.batch_decode(
             output_ids, skip_special_tokens=True, clean_up_tokenization_spaces=True
         )[0].strip()
