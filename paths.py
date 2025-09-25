@@ -13,3 +13,5 @@ IMAGE_PATH = ASSETS_DIR / "benchmark.png"
 MODEL_ID = "nanonets/Nanonets-OCR-s"
 SAVE_DIR = Path("exported_models")
 FP16_MODEL_PATH = Path("exported_models/nanoocr_fp16.pth")
+
+BELGRADO_OCR = Path(r"C:\Belgrado\Fascicoli")

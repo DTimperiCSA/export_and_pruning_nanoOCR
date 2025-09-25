@@ -22,5 +22,3 @@ def remove_before_headline(input_file: str, output_file: str = None):
     output_path = Path(output_file) if output_file else input_path
     with open(output_path, 'w', encoding='utf-8') as f:
         f.writelines(cleaned_lines)
-
-    print(f"Processed file saved to {output_path}")
