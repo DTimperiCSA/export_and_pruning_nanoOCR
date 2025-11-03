@@ -1,0 +1,14 @@
+{
+  "silhouette_cosine": NaN,
+  "davies_bouldin": NaN,
+  "calinski_harabasz": NaN,
+  "tm_mean_intra": 0.006818899843134902,
+  "tm_mean_inter": 0.0,
+  "tm_diff_intra_minus_inter": 0.006818899843134902,
+  "tm_ratio_intra_over_inter": Infinity,
+  "n_docs": 104,
+  "clustering_method": "dbscan",
+  "embedding_method": "sbert",
+  "n_clusters_found": 1,
+  "runtime_seconds": 11.23671269416809
+}
